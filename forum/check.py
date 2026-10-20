@@ -51,7 +51,7 @@ POSTS = [
     ("thread-b-deep-dive", HERE / "thread-b-deep-dive.md", False),
 ]
 DASHES = ("—", "–")
-URL_RE = re.compile(r"https?://[^\s)\]]+")
+URL_RE = re.compile(r"https?://[^\s)\]*]+")
 
 problems: list[str] = []
 images_used: dict[str, list[str]] = {}

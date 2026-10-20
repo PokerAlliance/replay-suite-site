@@ -294,7 +294,7 @@ def cmd_forum(a) -> None:
         # So this post never depends on editing: it points at the always-current page,
         # and when it is out of date a fresh one is posted as a reply.
         lines = [f"![Status board|690x115]({d.SITE_URL}img/forum/status-header.png)", "",
-                 f"**Always up to date on the website: {d.SITE_URL}status/**", "",
+                 f"**Always up to date on the website:** [the Status page]({d.SITE_URL}status/)", "",
                  f"*This post is a snapshot from {d.nice_date(today())}. When it gets old, a fresh one is posted further down the thread.*", ""]
         if latest:
             lines += [f"**Latest version: {latest['version']}** ({latest['summary']})", "",
