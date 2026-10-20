@@ -38,9 +38,8 @@ The Chrome store has not accepted the add-on yet. Chrome runs it fine. You insta
 5. At the top left, click <kbd>Load unpacked</kbd>, then choose the folder you unzipped.
 6. Click the puzzle-piece icon at the top right of Chrome, find **Replay Suite**, and click the pin next to it.
 
-<!-- SHOT: install-chrome-3.png (chrome://extensions) -->
-<!-- SHOT: install-chrome-4.png (Developer mode toggle) -->
-<!-- SHOT: install-chrome-5.png (Load unpacked + folder picker) -->
+![chrome://extensions with Developer mode on (top right) and Replay Suite loaded. Load unpacked is at the top left.](img/shots/chrome-extensions.png)
+
 <!-- SHOT: install-chrome-6.png (pin in the puzzle menu) -->
 
 !!! careful "Keep the folder"

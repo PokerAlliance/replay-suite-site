@@ -31,7 +31,7 @@ Not sure which browser you have? Look at the icon you click to get online. An or
 
 ## What it does
 
-![The dashboard](img/shot-dashboard-general.png)
+![The dashboard](img/shots/dashboard-general.png)
 
 - **Records every hand** you are dealt into, automatically.
 - **Replays any hand**, step by step, with the pot odds worked out.

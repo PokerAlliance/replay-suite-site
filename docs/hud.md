@@ -53,7 +53,7 @@ Next to Stats. The hands you have actually seen this player play, most relevant 
 
 Settings, HUD. Two layouts, one for 6-max and one for 9- and 10-max, because a full table has less room. Add a stat, choose its row and position, and the live preview on the right shows what the badge will look like. Two or three rows are allowed; the page warns when a badge is getting crowded.
 
-<!-- SHOT: options-hud-builder.png -->
+![Settings, HUD: what the badge shows, and how visible it is when you are not pointing at it](img/shots/options-hud.png)
 
 ## Colour
 

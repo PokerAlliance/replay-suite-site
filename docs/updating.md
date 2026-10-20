@@ -31,6 +31,8 @@ If the numbers match, you are up to date.
 4. **Reload the add-on.** Type `chrome://extensions` (or `edge://extensions` in Edge) in the address bar, find the Replay Suite card, and click its round **reload** arrow.
 5. **Check.** The card now shows the new version number. Open the dashboard: your hands are all there.
 
+![The Replay Suite card in chrome://extensions: the version, the ID, and the round reload arrow next to the switch](img/shots/chrome-extensions.png)
+
 !!! careful "Never click Remove"
     Removing the add-on from `chrome://extensions` or `edge://extensions` deletes every hand it has recorded. To update, always reload, never remove. If you ever do need to remove it, back up first, and Restore after installing again.
 

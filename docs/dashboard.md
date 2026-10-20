@@ -20,7 +20,7 @@ Under the tabs. When (7 days, 30 days, custom), format, table size, position, ho
 
 The overview. Your headline numbers as cards, your result by position, and how your hands ended.
 
-![The General tab](img/shot-dashboard-general.png)
+![The General tab: your headline numbers, your result by seat, and how your hands ended](img/shots/dashboard-general.png)
 
 Every card is a link. Click it and the Hands tab shows the exact hands it was counted from. The filter stays visible up top, greyed on other tabs, so you always know what you are looking at.
 
@@ -36,7 +36,7 @@ Every card is a link. Click it and the Hands tab shows the exact hands it was co
 
 Every hand, newest first. When, which table, your seat, your cards, how it ended, the result in chips and in big blinds, and M (for tournaments).
 
-![The Hands tab](img/shot-dashboard-hands.png)
+![The Hands tab: every hand, newest first](img/shots/dashboard-hands.png)
 
 Sort by clicking a column heading. Narrow with the filter bar. Click a hand to replay it.
 
@@ -48,7 +48,7 @@ Sort by clicking a column heading. Narrow with the filter bar. Click a hand to r
 
 Steps through one hand like a video. Seats, stacks, the pot and the board, with bets drawn to scale. The action log on the right is the hand in words; click any line to jump there.
 
-![The replayer](img/shot-replayer.png)
+![The replayer at the end of a hand: the board, both hands shown, and the action log on the right](img/shots/replayer-showdown.png)
 
 **The Decision panel** shows, at every step: the pot, what it costs you to call, the share of the pot you need to win for the call to be worthwhile, and SPR (your stack divided by the pot).
 
@@ -72,7 +72,7 @@ Steps through one hand like a video. Seats, stacks, the pot and the board, with 
 
 Charts. Each has a short line under it saying what it shows, and each responds to the filter bar.
 
-![The Analytics tab](img/shot-dashboard-analytics.png)
+![The Analytics tab: results over time, stack depth, M-ratio and aggression](img/shots/dashboard-analytics.png)
 
 - **Results over time**: your cumulative result, hand by hand. Hover for the hand behind any point.
 - **Stack depth**: where your chips came from, by how deep you were.
@@ -100,15 +100,21 @@ Charts. Each has a short line under it saying what it shows, and each responds t
 
 Each tournament you have played: name, size, buy-in, where you finished, what it paid, and how many hands you played in it. Results come from Replay's own history and settle a few minutes after the tournament ends. This tab is only shown for you, not for other players.
 
+![The Tournaments tab: entries, results, and your profit curve](img/shots/dashboard-tournaments.png)
+
 ## Preflop, Flop, Turn and River
 
 The detailed numbers, street by street. Each street tab starts with your decisions (first to act, after checking, facing a bet) and then lists every stat with its percentage and the fraction behind it. The Flop tab also breaks down by board texture.
+
+![The Preflop tab: what you did in each spot, with the fraction behind every percentage](img/shots/dashboard-preflop.png)
 
 You do not need these to get value from the add-on. When you are curious, every number is a link to its hands, and every stat is one line in the [glossary](glossary.md).
 
 ## Range
 
 A grid of all 169 starting hands, coloured by how you play them. Preset ranges on the side; click a hand to see the hands where you held it.
+
+![The Range tab with two presets selected, All pairs and Broadway](img/shots/dashboard-range.png)
 
 !!! coach "Coach's opinion"
     <!-- COACH: Card "The Range tab: what a 13 by 13 grid shows" -->
@@ -117,3 +123,5 @@ A grid of all 169 starting hands, coloured by how you play them. Preset ranges o
 ## Viewing as
 
 Top right. Pick any player you have shared a table with and the whole dashboard shows their hands, as you saw them. Every tab works the same way, apart from Tournaments, which Replay does not expose for other players.
+
+![Choosing a player to view as. The names here are made up for this picture.](img/shots/dashboard-viewing-as.png)

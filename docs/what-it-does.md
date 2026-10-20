@@ -20,7 +20,7 @@ Replay Suite is a free add-on for your browser. It saves every hand you play on 
 
 The dashboard holds every hand you have played: your results, which seats make you chips and which cost you, every tournament, and every number a poker book talks about. Each number is a link to the hands behind it.
 
-![The dashboard, General tab](img/shot-dashboard-general.png)
+![The dashboard, General tab](img/shots/dashboard-general.png)
 
 [More about the dashboard](dashboard.md)
 
@@ -28,7 +28,7 @@ The dashboard holds every hand you have played: your results, which seats make y
 
 Step through a hand like a video. The add-on shows the pot, what it cost you to call, and, when someone turned their cards over, what your real chances were at each street.
 
-![The hand replayer](img/shot-replayer.png)
+![The hand replayer](img/shots/replayer-showdown.png)
 
 ## Read your opponents
 

@@ -12,7 +12,7 @@ Go to Replay and click the Replay Suite icon at the top of your browser. The fir
 2. **Hand recording is on from the start.** Only hands you are dealt into are saved.
 3. **Back up now and then.** Your hands live only here. A backup is one click. [How](data.md#back-up).
 
-<!-- SHOT: popup-first-run.png -->
+![The welcome screen, the first time you click the icon](img/shots/popup-first-run.png){ width="420" }
 
 ## Bring in the hands you have already played
 
@@ -34,7 +34,7 @@ A small marker on the table shows that recording is on. If a hand arrives damage
 
 Click the icon, then <kbd>Open Dashboard</kbd>. Your hands are there. The [dashboard page](dashboard.md) explains each tab.
 
-![The Hands tab](img/shot-dashboard-hands.png)
+![The Hands tab](img/shots/dashboard-hands.png)
 
 ## About the first week
 

@@ -43,11 +43,11 @@ The add-on does some work when you are not at a table: bringing in old hands, ch
 
 The slider is how hard the add-on is allowed to work Replay's servers. Slow is the default and it is the polite setting. Faster is allowed, and the page tells you what it costs.
 
-<!-- SHOT: options-background.png -->
+![Settings, Background: what runs when you are not at a table](img/shots/options-background.png)
 
 ## Appearance
 
-**Retro mode** is the dark look Replay used to have. On or off, takes effect at once, no reload.
+**Retro mode** is the dark look Replay used to have. Switch it on or off here or in the popup. It takes effect the next time you open or reload a Replay page.
 
 <!-- SHOT: retro-before-after.png -->
 
