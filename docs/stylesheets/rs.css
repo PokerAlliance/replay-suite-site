@@ -1,0 +1,159 @@
+/* Replay Suite palette, from the extension's own src/styles/tailwind.css */
+:root {
+  --rs-bg-top: #131d2a;
+  --rs-bg-bottom: #0d111c;
+  --rs-panel: #2f3655;
+  --rs-panel-alt: #1c2438;
+  --rs-border: #445577;
+  --rs-muted: #b8c2d9;
+  --rs-accent: #de1c3f;
+  --rs-gold: #f9d276;
+  --rs-good: #34a264;
+
+  --md-primary-fg-color: var(--rs-bg-top);
+  --md-accent-fg-color: var(--rs-accent);
+
+  /* spade glyph for the coach card title */
+  --md-admonition-icon--coach: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9.5 4 13.5A4 4 0 0 0 11 16c-.3 2-1.2 3.4-3 4h8c-1.8-.6-2.7-2-3-4a4 4 0 0 0 7-2.5C20 9.5 15 6 12 2z"/></svg>');
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: var(--rs-bg-bottom);
+  --md-default-fg-color: #ffffff;
+  --md-default-fg-color--light: var(--rs-muted);
+  --md-code-bg-color: var(--rs-panel-alt);
+  --md-typeset-a-color: var(--rs-gold);
+}
+
+/* Readers are 55 and over. Bigger base text, more line height, wider measure. */
+.md-typeset { font-size: 1.05rem; line-height: 1.7; }
+.md-grid { max-width: 62rem; }
+.md-typeset h1 { font-weight: 700; }
+.md-typeset h2 { border-bottom: 1px solid var(--rs-border); padding-bottom: .3rem; }
+
+/* Screenshots: framed, never edge to edge */
+.md-typeset img { border-radius: 10px; border: 1px solid var(--rs-border); }
+
+/* Numbered install steps read better with more air */
+.md-typeset ol > li { margin-bottom: .6rem; }
+
+/* Buttons the reader clicks: name them in a pill so they match the screen */
+.md-typeset kbd {
+  background: var(--rs-panel); border: 1px solid var(--rs-border); color: #fff;
+  border-radius: 6px; padding: .1em .5em; font-family: inherit; font-size: .95em; box-shadow: none;
+}
+
+/* ---- The Coach's opinion card -------------------------------------------
+   Visually distinct from the documentation voice: gold rule, spade, italic
+   lead. Use:   !!! coach "Coach's opinion"                                   */
+.md-typeset .admonition.coach,
+.md-typeset details.coach {
+  border-color: var(--rs-gold);
+  border-width: 0 0 0 4px;
+  background: linear-gradient(180deg, rgba(249,210,118,.07), rgba(249,210,118,.02));
+  box-shadow: none;
+  font-size: 1em;          /* Material shrinks admonitions; our readers need full size */
+  line-height: 1.7;
+  padding-bottom: .4rem;
+}
+.md-typeset .coach > .admonition-title,
+.md-typeset .coach > summary {
+  background-color: rgba(249,210,118,.12);
+  color: var(--rs-gold);
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+.md-typeset .coach > .admonition-title::before,
+.md-typeset .coach > summary::before {
+  background-color: var(--rs-gold);
+  -webkit-mask-image: var(--md-admonition-icon--coach);
+          mask-image: var(--md-admonition-icon--coach);
+}
+.md-typeset .coach p:first-of-type::first-letter { font-size: 1.15em; }
+
+/* Try it and Careful cards: same full size */
+.md-typeset .admonition.try, .md-typeset .admonition.careful { font-size: 1em; line-height: 1.7; }
+
+/* ---- "Try it" card: a two-minute exercise at the end of a page ----------- */
+.md-typeset .admonition.try { border-color: var(--rs-good); }
+.md-typeset .try > .admonition-title { background-color: rgba(52,162,100,.12); color: #7fd6a3; }
+
+/* ---- "Careful" card: the one thing that loses data --------------------- */
+.md-typeset .admonition.careful { border-color: var(--rs-accent); }
+.md-typeset .careful > .admonition-title { background-color: rgba(222,28,63,.12); color: #ff7a90; }
+
+/* ===== Site v2: home, versions, status ===================================== */
+
+.md-typeset .rs-lead { font-size: 1.35rem; color: var(--rs-muted); margin-top: -.4rem; }
+
+/* Install buttons: big targets, wrap on phones */
+.md-typeset .rs-install { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.4rem 0; }
+.md-typeset .rs-install .md-button { font-size: 1.05rem; padding: .7em 1.4em; margin: 0; }
+.md-typeset .md-button {
+  border-radius: 10px; color: #fff; background: var(--rs-panel); border: 1px solid var(--rs-border);
+}
+.md-typeset .md-button:hover, .md-typeset .md-button:focus {
+  color: #fff; background: #3a4266; border-color: var(--rs-gold);
+}
+.md-typeset .md-button--primary { background: var(--rs-accent); border-color: var(--rs-accent); color: #fff; }
+.md-typeset .md-button--primary:hover, .md-typeset .md-button--primary:focus { background: #f0284f; border-color: var(--rs-gold); }
+.md-typeset h1 { color: #fff; }
+
+/* Status pills */
+.md-typeset .rs-pill {
+  display: inline-block; font-size: .78em; font-weight: 700; letter-spacing: .02em;
+  padding: .15em .7em; border-radius: 999px; margin-right: .5em; vertical-align: .1em;
+  text-transform: uppercase;
+}
+.rs-pill--open          { background: rgba(222,28,63,.18);  color: #ff8fa2; border: 1px solid rgba(222,28,63,.5); }
+.rs-pill--investigating { background: rgba(249,210,118,.14); color: var(--rs-gold); border: 1px solid rgba(249,210,118,.45); }
+.rs-pill--open-idea     { background: rgba(110,160,255,.14); color: #a9c4ff; border: 1px solid rgba(110,160,255,.45); }
+.rs-pill--done          { background: rgba(52,162,100,.16); color: #7fd6a3; border: 1px solid rgba(52,162,100,.5); }
+.rs-pill--muted         { background: var(--rs-panel-alt); color: var(--rs-muted); border: 1px solid var(--rs-border); }
+
+.md-typeset .rs-id { font-family: var(--md-code-font-family); font-size: .82em; color: var(--rs-muted); margin-right: .35em; }
+.md-typeset .rs-date { color: var(--rs-muted); font-size: .9em; }
+.md-typeset .rs-empty { color: var(--rs-muted); font-style: italic; }
+
+/* Versions page */
+.md-typeset .rs-release {
+  border: 1px solid var(--rs-border); border-radius: 12px; padding: .2rem 1.4rem 1rem;
+  margin: 1.4rem 0; background: linear-gradient(180deg, rgba(47,54,85,.35), rgba(28,36,56,.15));
+}
+.md-typeset .rs-release h2 { border: 0; margin-top: 1rem; }
+.md-typeset .rs-release h3 { font-size: 1rem; margin: 1rem 0 .3rem; color: var(--rs-gold); }
+.md-typeset .rs-summary { font-size: 1.08rem; }
+.md-typeset .rs-dl { margin-top: 1rem; }
+
+/* Status page items */
+.md-typeset .rs-item { border-left: 3px solid var(--rs-border); padding: .5rem 0 .5rem 1rem; margin: .7rem 0; }
+.md-typeset .rs-item-head { font-weight: 600; }
+.md-typeset .rs-meta { color: var(--rs-muted); font-size: .92em; margin-top: .2rem; }
+.md-typeset .rs-workaround { font-size: .95em; margin-top: .3rem; }
+.md-typeset .rs-forum { white-space: nowrap; }
+.md-typeset .rs-news { margin: .9rem 0; }
+.md-typeset .rs-news p { margin: .2rem 0 0; }
+
+/* Home status box */
+.md-typeset .rs-statusbox { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: .8rem; margin: 1rem 0; }
+.md-typeset .rs-stat {
+  display: flex; flex-direction: column; gap: .2rem; padding: 1rem 1.1rem;
+  border: 1px solid var(--rs-border); border-radius: 12px; background: var(--rs-panel-alt);
+}
+.md-typeset .rs-stat-n { font-size: 1.9rem; font-weight: 700; color: #fff; line-height: 1.1; }
+.md-typeset .rs-stat span:last-child { color: var(--rs-muted); font-size: .92em; }
+.md-typeset .rs-news-line { color: var(--rs-muted); }
+
+/* Videos */
+.md-typeset .rs-video { position: relative; aspect-ratio: 16 / 9; margin: 1rem 0; }
+.md-typeset .rs-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 12px; }
+
+/* Icons for the custom cards (Material only ships icons for its own types) */
+.md-typeset .careful > .admonition-title::before {
+  background-color: #ff7a90;
+  -webkit-mask-image: var(--md-admonition-icon--warning); mask-image: var(--md-admonition-icon--warning);
+}
+.md-typeset .try > .admonition-title::before {
+  background-color: #7fd6a3;
+  -webkit-mask-image: var(--md-admonition-icon--tip); mask-image: var(--md-admonition-icon--tip);
+}

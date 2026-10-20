@@ -1,0 +1,6 @@
+# Known bugs, as reported on the Replay forum. Rendered on the Status page.
+# status: open | investigating | fixed | not a bug
+# Titles are plain English, as a player would describe the problem.
+# Easiest edit: ./site.py bug add "..." --forum URL      ./site.py bug fix B-001 --in 4.0.2
+
+[]

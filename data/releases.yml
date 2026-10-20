@@ -1,0 +1,28 @@
+# Every release, newest first. Rendered on the Versions page.
+# `fixed` lists bug ids (from bugs.yml); `shipped_suggestions` lists suggestion ids.
+# `firefox_only: true` means there was no Chrome/Edge zip for that version.
+# Writing rule: no em dashes or en dashes anywhere. `./site.py check` enforces it.
+
+- version: 4.0.1
+  date: '2026-10-20'
+  summary: Chrome and Edge get their first download, and updates there now keep your hands.
+  added:
+  - The version number is shown at the bottom of the popup, with a link to the Versions page.
+  - A licence file inside every download.
+  changed:
+  - 'Chrome and Edge: Replay Suite now has the same identity whichever folder you load it from, so unzipping
+    an update somewhere new no longer starts you with an empty library.'
+  fixed: []
+  shipped_suggestions: []
+  update_note: 'Chrome and Edge testers who installed an earlier build by hand: back up first (Settings,
+    Data, Back up), install this version, then Restore. This one time only.'
+- version: 4.0.0
+  date: '2026-09-15'
+  firefox_only: true
+  summary: First release, on Firefox Add-ons.
+  added:
+  - Automatic hand recording, the dashboard, the hand replayer, the HUD, and Retro mode.
+  changed: []
+  fixed: []
+  shipped_suggestions: []
+  update_note: ''

@@ -1,0 +1,78 @@
+# Replay Suite: the public website.
+# Preview:  .venv/bin/mkdocs serve       Check everything:  ./site.py check
+# Deploys on every push to main (.github/workflows/pages.yml).
+site_name: Replay Suite
+site_description: Every hand you play on ReplayPoker, saved and explained. On your computer, nowhere else.
+site_author: Badr (aka ThonBl7ror)
+site_url: https://pokeralliance.github.io/replay-suite-site/
+# No repo_url on purpose: it would print the GitHub account name in the header.
+
+copyright: >
+  &copy; 2026 Badr (aka ThonBl7ror) &middot; Replay Suite is free &middot;
+  Not affiliated with ReplayPoker &middot; <a href="https://pokeralliance.github.io/replay-suite-site/privacy/">Privacy</a>
+
+theme:
+  name: material
+  language: en
+  logo: img/logo.png
+  favicon: img/logo.png
+  font:
+    text: Noto Sans
+  palette:
+    scheme: slate
+    primary: custom
+    accent: custom
+  features:
+    - navigation.sections
+    - navigation.footer
+    - navigation.top
+    - search.suggest
+    - content.tooltips
+    - toc.follow
+
+extra:
+  generator: false
+
+extra_css:
+  - stylesheets/rs.css
+
+plugins:
+  - search
+  - macros:
+      module_name: main
+      render_by_default: false   # only pages with `render_macros: true` are templated
+
+markdown_extensions:
+  - admonition            # Coach's opinion, Try it, Careful cards
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - abbr                  # hover definitions for stat abbreviations
+  - pymdownx.snippets:
+      base_path: [docs]
+      check_paths: true
+      auto_append:
+        - includes/abbreviations.md
+  - toc:
+      permalink: true
+
+exclude_docs: |
+  includes/
+
+nav:
+  - Home: index.md
+  - What it does: what-it-does.md
+  - Install: install.md
+  - Updating: updating.md
+  - Using it:
+      - Your first day: first-day.md
+      - The dashboard: dashboard.md
+      - The HUD: hud.md
+      - Settings and your data: data.md
+  - Glossary: glossary.md
+  - Versions: versions.md
+  - Status: status.md
+  - Videos: videos.md
+  - Questions: faq.md
+  - Privacy: privacy.md

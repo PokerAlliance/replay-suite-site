@@ -1,0 +1,24 @@
+name: No source code here
+
+# This repository is public. Replay Suite's source is not. This check fails any
+# push or pull request that contains source files, source maps, build manifests,
+# keys, or zips (zips belong on the Releases page, not in git).
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refuse source files
+        run: |
+          bad=$(git ls-files | grep -E '(\.(ts|tsx|jsx|map|pem|zip|xpi|crx)$|(^|/)src/|(^|/)package\.json$|(^|/)pnpm-lock\.yaml$|(^|/)wxt\.config\.)' || true)
+          if [ -n "$bad" ]; then
+            echo "These files must not be in the public repository:"
+            echo "$bad"
+            exit 1
+          fi
+          echo "No source files found."

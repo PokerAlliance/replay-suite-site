@@ -1,0 +1,5 @@
+# Suggestions from the Replay forum. Rendered on the Status page.
+# status: under review | planned | shipped | not planned  ("not planned" needs a reason)
+# Easiest edit: ./site.py idea add "..." --forum URL      ./site.py idea plus S-001
+
+[]
