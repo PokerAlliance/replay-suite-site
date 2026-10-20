@@ -56,23 +56,30 @@ markdown_extensions:
         - includes/abbreviations.md
   - toc:
       permalink: true
+      title: On this page
+
+hooks:
+  - tools/hooks.py        # hides "On this page" on short pages
 
 exclude_docs: |
   includes/
 
 nav:
-  - Home: index.md
-  - What it does: what-it-does.md
-  - Install: install.md
-  - Updating: updating.md
+  - Start here:
+      - Home: index.md
+      - What it does: what-it-does.md
+      - Install: install.md
+      - Updating: updating.md
   - Using it:
       - Your first day: first-day.md
       - The dashboard: dashboard.md
       - The HUD: hud.md
-      - Settings and your data: data.md
-  - Glossary: glossary.md
-  - Versions: versions.md
-  - Status: status.md
-  - Videos: videos.md
-  - Questions: faq.md
-  - Privacy: privacy.md
+      - Settings and data: data.md
+  - Help:
+      - Questions: faq.md
+      - Glossary: glossary.md
+  - News and versions:
+      - Versions: versions.md
+      - Status: status.md
+      - Videos: videos.md
+      - Privacy: privacy.md

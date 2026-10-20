@@ -1,17 +1,30 @@
-/* Replay Suite palette, from the extension's own src/styles/tailwind.css */
+/* Replay Suite site styles.
+   Palette from the extension's own src/styles/tailwind.css.
+
+   Type scale: Material sets the root at 20px, so 1rem = 20px here, not 16px.
+   Body text is .9rem (18px) and everything inside the page is sized in em
+   relative to it, so changing that one number rescales the whole page.
+   Navigation and the table of contents are .8rem (16px).
+   scripts/site-review.mjs in the private repo checks both numbers.          */
+
 :root {
   --rs-bg-top: #131d2a;
   --rs-bg-bottom: #0d111c;
   --rs-panel: #2f3655;
-  --rs-panel-alt: #1c2438;
-  --rs-border: #445577;
+  --rs-panel-alt: #1a2133;
+  --rs-panel-soft: rgba(47, 54, 85, .45);
+  --rs-border: #3a4766;
   --rs-muted: #b8c2d9;
+  --rs-faint: #8a95b0;
   --rs-accent: #de1c3f;
   --rs-gold: #f9d276;
   --rs-good: #34a264;
 
+  --rs-body: .9rem;   /* 18px */
+  --rs-nav: .8rem;    /* 16px */
+
   --md-primary-fg-color: var(--rs-bg-top);
-  --md-accent-fg-color: var(--rs-accent);
+  --md-accent-fg-color: var(--rs-gold);
 
   /* spade glyph for the coach card title */
   --md-admonition-icon--coach: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C9 6 4 9.5 4 13.5A4 4 0 0 0 11 16c-.3 2-1.2 3.4-3 4h8c-1.8-.6-2.7-2-3-4a4 4 0 0 0 7-2.5C20 9.5 15 6 12 2z"/></svg>');
@@ -21,139 +34,241 @@
   --md-default-bg-color: var(--rs-bg-bottom);
   --md-default-fg-color: #ffffff;
   --md-default-fg-color--light: var(--rs-muted);
+  --md-default-fg-color--lighter: var(--rs-faint);
   --md-code-bg-color: var(--rs-panel-alt);
   --md-typeset-a-color: var(--rs-gold);
 }
 
-/* Readers are 55 and over. Bigger base text, more line height, wider measure. */
-.md-typeset { font-size: 1.05rem; line-height: 1.7; }
-.md-grid { max-width: 62rem; }
-.md-typeset h1 { font-weight: 700; }
-.md-typeset h2 { border-bottom: 1px solid var(--rs-border); padding-bottom: .3rem; }
+/* ===== Page text ========================================================== */
+
+.md-typeset { font-size: var(--rs-body); line-height: 1.65; }
+.md-typeset p, .md-typeset ul, .md-typeset ol { margin: 0 0 1em; }
+.md-typeset li { margin-bottom: .4em; }
+.md-typeset ol > li, .md-typeset ul > li { margin-left: 1.4em; }
+
+/* Lines of about 70 characters: easy to follow back to the next line */
+.md-content__inner { max-width: 46em; }
+
+.md-typeset h1 {
+  font-size: 1.75em; font-weight: 700; line-height: 1.25; color: #fff;
+  margin: 0 0 .8em; letter-spacing: -.01em;
+}
+.md-typeset h2 {
+  font-size: 1.35em; font-weight: 600; line-height: 1.3; color: #fff;
+  margin: 2em 0 .7em; padding-bottom: .35em; border-bottom: 1px solid var(--rs-border);
+}
+.md-typeset h3 { font-size: 1.12em; font-weight: 600; line-height: 1.35; margin: 1.6em 0 .5em; }
+.md-typeset h4 { font-size: 1em; font-weight: 700; margin: 1.4em 0 .4em; }
+.md-typeset .headerlink { color: var(--rs-faint); }
+
+.md-typeset a { text-underline-offset: .18em; }
+.md-typeset a:hover { text-decoration: underline; }
 
 /* Screenshots: framed, never edge to edge */
 .md-typeset img { border-radius: 10px; border: 1px solid var(--rs-border); }
+.md-typeset figure { margin: 1.5em 0; }
+.md-typeset figcaption { font-size: .88em; color: var(--rs-muted); max-width: none; }
 
-/* Numbered install steps read better with more air */
-.md-typeset ol > li { margin-bottom: .6rem; }
-
-/* Buttons the reader clicks: name them in a pill so they match the screen */
+/* Buttons the reader clicks, named in a pill so they match the screen.
+   Small enough to sit inside a line without pushing the next one away. */
 .md-typeset kbd {
-  background: var(--rs-panel); border: 1px solid var(--rs-border); color: #fff;
-  border-radius: 6px; padding: .1em .5em; font-family: inherit; font-size: .95em; box-shadow: none;
+  display: inline-block; font-family: inherit; font-size: .85em; font-weight: 600;
+  line-height: 1.35; padding: .05em .45em; vertical-align: .05em;
+  color: #fff; background: var(--rs-panel); border: 1px solid var(--rs-border);
+  border-radius: 6px; box-shadow: 0 1px 0 rgba(0, 0, 0, .35);
 }
 
-/* ---- The Coach's opinion card -------------------------------------------
-   Visually distinct from the documentation voice: gold rule, spade, italic
-   lead. Use:   !!! coach "Coach's opinion"                                   */
-.md-typeset .admonition.coach,
-.md-typeset details.coach {
+.md-typeset table:not([class]) { font-size: .92em; border: 1px solid var(--rs-border); border-radius: 8px; }
+.md-typeset table:not([class]) th { background: var(--rs-panel-alt); font-weight: 700; }
+.md-typeset code { font-size: .88em; }
+.md-typeset abbr { text-decoration-color: var(--rs-faint); }
+
+/* ===== Cards: Coach's opinion, Try it, Careful ============================ */
+
+.md-typeset .admonition, .md-typeset details {
+  font-size: 1em; line-height: 1.65; border-radius: 10px;
+  border-width: 0 0 0 4px; box-shadow: none; margin: 1.6em 0;
+}
+.md-typeset .admonition-title, .md-typeset summary { font-size: 1em; font-weight: 700; }
+.md-typeset .admonition > p:last-child, .md-typeset details > p:last-child { margin-bottom: .9em; }
+
+/* Coach's opinion: the poker voice, visually apart from the guide.
+   Use:   !!! coach "Coach's opinion"                                   */
+.md-typeset .admonition.coach, .md-typeset details.coach {
   border-color: var(--rs-gold);
-  border-width: 0 0 0 4px;
-  background: linear-gradient(180deg, rgba(249,210,118,.07), rgba(249,210,118,.02));
-  box-shadow: none;
-  font-size: 1em;          /* Material shrinks admonitions; our readers need full size */
-  line-height: 1.7;
-  padding-bottom: .4rem;
+  background: linear-gradient(180deg, rgba(249, 210, 118, .08), rgba(249, 210, 118, .02));
 }
-.md-typeset .coach > .admonition-title,
-.md-typeset .coach > summary {
-  background-color: rgba(249,210,118,.12);
-  color: var(--rs-gold);
-  font-weight: 700;
-  letter-spacing: .01em;
+.md-typeset .coach > .admonition-title, .md-typeset .coach > summary {
+  background-color: rgba(249, 210, 118, .12); color: var(--rs-gold); letter-spacing: .01em;
 }
-.md-typeset .coach > .admonition-title::before,
-.md-typeset .coach > summary::before {
+.md-typeset .coach > .admonition-title::before, .md-typeset .coach > summary::before {
   background-color: var(--rs-gold);
-  -webkit-mask-image: var(--md-admonition-icon--coach);
-          mask-image: var(--md-admonition-icon--coach);
+  -webkit-mask-image: var(--md-admonition-icon--coach); mask-image: var(--md-admonition-icon--coach);
 }
-.md-typeset .coach p:first-of-type::first-letter { font-size: 1.15em; }
 
-/* Try it and Careful cards: same full size */
-.md-typeset .admonition.try, .md-typeset .admonition.careful { font-size: 1em; line-height: 1.7; }
-
-/* ---- "Try it" card: a two-minute exercise at the end of a page ----------- */
-.md-typeset .admonition.try { border-color: var(--rs-good); }
-.md-typeset .try > .admonition-title { background-color: rgba(52,162,100,.12); color: #7fd6a3; }
-
-/* ---- "Careful" card: the one thing that loses data --------------------- */
-.md-typeset .admonition.careful { border-color: var(--rs-accent); }
-.md-typeset .careful > .admonition-title { background-color: rgba(222,28,63,.12); color: #ff7a90; }
-
-/* ===== Site v2: home, versions, status ===================================== */
-
-.md-typeset .rs-lead { font-size: 1.35rem; color: var(--rs-muted); margin-top: -.4rem; }
-
-/* Install buttons: big targets, wrap on phones */
-.md-typeset .rs-install { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.4rem 0; }
-.md-typeset .rs-install .md-button { font-size: 1.05rem; padding: .7em 1.4em; margin: 0; }
-.md-typeset .md-button {
-  border-radius: 10px; color: #fff; background: var(--rs-panel); border: 1px solid var(--rs-border);
-}
-.md-typeset .md-button:hover, .md-typeset .md-button:focus {
-  color: #fff; background: #3a4266; border-color: var(--rs-gold);
-}
-.md-typeset .md-button--primary { background: var(--rs-accent); border-color: var(--rs-accent); color: #fff; }
-.md-typeset .md-button--primary:hover, .md-typeset .md-button--primary:focus { background: #f0284f; border-color: var(--rs-gold); }
-.md-typeset h1 { color: #fff; }
-
-/* Status pills */
-.md-typeset .rs-pill {
-  display: inline-block; font-size: .78em; font-weight: 700; letter-spacing: .02em;
-  padding: .15em .7em; border-radius: 999px; margin-right: .5em; vertical-align: .1em;
-  text-transform: uppercase;
-}
-.rs-pill--open          { background: rgba(222,28,63,.18);  color: #ff8fa2; border: 1px solid rgba(222,28,63,.5); }
-.rs-pill--investigating { background: rgba(249,210,118,.14); color: var(--rs-gold); border: 1px solid rgba(249,210,118,.45); }
-.rs-pill--open-idea     { background: rgba(110,160,255,.14); color: #a9c4ff; border: 1px solid rgba(110,160,255,.45); }
-.rs-pill--done          { background: rgba(52,162,100,.16); color: #7fd6a3; border: 1px solid rgba(52,162,100,.5); }
-.rs-pill--muted         { background: var(--rs-panel-alt); color: var(--rs-muted); border: 1px solid var(--rs-border); }
-
-.md-typeset .rs-id { font-family: var(--md-code-font-family); font-size: .82em; color: var(--rs-muted); margin-right: .35em; }
-.md-typeset .rs-date { color: var(--rs-muted); font-size: .9em; }
-.md-typeset .rs-empty { color: var(--rs-muted); font-style: italic; }
-
-/* Versions page */
-.md-typeset .rs-release {
-  border: 1px solid var(--rs-border); border-radius: 12px; padding: .2rem 1.4rem 1rem;
-  margin: 1.4rem 0; background: linear-gradient(180deg, rgba(47,54,85,.35), rgba(28,36,56,.15));
-}
-.md-typeset .rs-release h2 { border: 0; margin-top: 1rem; }
-.md-typeset .rs-release h3 { font-size: 1rem; margin: 1rem 0 .3rem; color: var(--rs-gold); }
-.md-typeset .rs-summary { font-size: 1.08rem; }
-.md-typeset .rs-dl { margin-top: 1rem; }
-
-/* Status page items */
-.md-typeset .rs-item { border-left: 3px solid var(--rs-border); padding: .5rem 0 .5rem 1rem; margin: .7rem 0; }
-.md-typeset .rs-item-head { font-weight: 600; }
-.md-typeset .rs-meta { color: var(--rs-muted); font-size: .92em; margin-top: .2rem; }
-.md-typeset .rs-workaround { font-size: .95em; margin-top: .3rem; }
-.md-typeset .rs-forum { white-space: nowrap; }
-.md-typeset .rs-news { margin: .9rem 0; }
-.md-typeset .rs-news p { margin: .2rem 0 0; }
-
-/* Home status box */
-.md-typeset .rs-statusbox { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: .8rem; margin: 1rem 0; }
-.md-typeset .rs-stat {
-  display: flex; flex-direction: column; gap: .2rem; padding: 1rem 1.1rem;
-  border: 1px solid var(--rs-border); border-radius: 12px; background: var(--rs-panel-alt);
-}
-.md-typeset .rs-stat-n { font-size: 1.9rem; font-weight: 700; color: #fff; line-height: 1.1; }
-.md-typeset .rs-stat span:last-child { color: var(--rs-muted); font-size: .92em; }
-.md-typeset .rs-news-line { color: var(--rs-muted); }
-
-/* Videos */
-.md-typeset .rs-video { position: relative; aspect-ratio: 16 / 9; margin: 1rem 0; }
-.md-typeset .rs-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 12px; }
-
-/* Icons for the custom cards (Material only ships icons for its own types) */
-.md-typeset .careful > .admonition-title::before {
-  background-color: #ff7a90;
-  -webkit-mask-image: var(--md-admonition-icon--warning); mask-image: var(--md-admonition-icon--warning);
-}
+/* Try it: a two minute exercise at the end of a page */
+.md-typeset .admonition.try { border-color: var(--rs-good); background: rgba(52, 162, 100, .05); }
+.md-typeset .try > .admonition-title { background-color: rgba(52, 162, 100, .12); color: #7fd6a3; }
 .md-typeset .try > .admonition-title::before {
   background-color: #7fd6a3;
   -webkit-mask-image: var(--md-admonition-icon--tip); mask-image: var(--md-admonition-icon--tip);
 }
+
+/* Careful: the one thing that loses data */
+.md-typeset .admonition.careful { border-color: var(--rs-accent); background: rgba(222, 28, 63, .05); }
+.md-typeset .careful > .admonition-title { background-color: rgba(222, 28, 63, .12); color: #ff8fa2; }
+.md-typeset .careful > .admonition-title::before {
+  background-color: #ff8fa2;
+  -webkit-mask-image: var(--md-admonition-icon--warning); mask-image: var(--md-admonition-icon--warning);
+}
+
+/* ===== Header ============================================================== */
+
+.md-header { box-shadow: 0 1px 0 var(--rs-border); }
+.md-header__button.md-logo { margin-right: .4rem; }
+.md-header__button.md-logo img { height: 1.6rem; width: auto; border-radius: 6px; }
+.md-header__title { font-size: .9rem; font-weight: 700; }
+.md-search__form { background: var(--rs-panel-soft); border-radius: 8px; }
+.md-search__form:hover { background: var(--rs-panel); }
+
+/* ===== Sidebar and table of contents ====================================== */
+
+.md-nav { font-size: var(--rs-nav); line-height: 1.4; }
+.md-nav__link { margin-top: 0; padding: .28rem .6rem; border-radius: 8px; }
+.md-nav__item .md-nav__link { color: var(--md-default-fg-color); }
+.md-nav__link:hover, .md-nav__link:focus { color: var(--rs-gold); }
+
+/* The page you are on: gold, with a bar on the left */
+.md-nav__link--active, .md-nav__item .md-nav__link--active {
+  color: var(--rs-gold); font-weight: 600;
+  background: var(--rs-panel-soft); box-shadow: inset 3px 0 0 var(--rs-gold);
+}
+
+/* Section labels: Start here, Using it, Help, News and versions */
+.md-nav__item--section { margin: .8rem 0 0; }
+.md-nav__item--section:first-child { margin-top: 0; }
+.md-nav__item--section > .md-nav__link {
+  font-size: .62rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--rs-faint); padding-bottom: .25rem; pointer-events: none;
+}
+.md-nav__item--section > .md-nav__link:hover { color: var(--rs-faint); background: none; }
+.md-nav__item--section > .md-nav { margin-left: 0; }
+
+/* Table of contents */
+.md-nav--secondary .md-nav__title {
+  font-size: .62rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--rs-faint); background: none; box-shadow: none; padding-left: .6rem;
+}
+.md-nav--secondary .md-nav__link { color: var(--rs-muted); }
+.md-nav--secondary .md-nav__link--active { color: var(--rs-gold); }
+
+@media screen and (min-width: 76.25em) {
+  /* The site name is already in the header; the nav does not repeat it */
+  .md-nav--primary > .md-nav__title { display: none; }
+
+  /* The sidebar is a panel, so it reads as navigation, not floating text */
+  .md-sidebar--primary .md-nav--primary > .md-nav__list {
+    background: var(--rs-panel-alt); border: 1px solid var(--rs-border);
+    border-radius: 12px; padding: .5rem .3rem .6rem; margin-right: .4rem;
+  }
+}
+
+/* Phone and tablet drawer: big tap targets */
+@media screen and (max-width: 76.234375em) {
+  .md-nav--primary .md-nav__title { font-size: .8rem; }
+  .md-nav--primary .md-nav__link { padding: .55rem .8rem; }
+  .md-nav__item--section > .md-nav__link { display: block; padding: .8rem .8rem .2rem; }
+}
+
+/* ===== Footer ============================================================== */
+
+.md-footer-meta { font-size: .7rem; }
+.md-footer__link { font-size: .8rem; }
+.md-copyright { font-size: .7rem; color: var(--rs-faint); }
+
+/* ===== Home ================================================================ */
+
+.md-typeset .rs-hero { text-align: center; margin: .5em 0 2.2em; }
+.md-typeset .rs-hero h1 { font-size: 2em; margin-bottom: .3em; }
+.md-typeset .rs-lead { font-size: 1.15em; color: var(--rs-muted); margin: 0 auto 1.2em; max-width: 30em; }
+.md-typeset .rs-hero > p { max-width: 36em; margin-left: auto; margin-right: auto; }
+
+/* Two install buttons side by side, full width under each other on phones */
+.md-typeset .rs-install {
+  display: grid; grid-template-columns: 1fr 1fr; gap: .8em; max-width: 34em; margin: 1.6em auto .9em;
+}
+.md-typeset .rs-install p { display: contents; }
+.md-typeset .rs-install .md-button { margin: 0; text-align: center; }
+.md-typeset .rs-guide { font-size: .95em; }
+@media screen and (max-width: 36em) {
+  .md-typeset .rs-install { grid-template-columns: 1fr; }
+}
+
+.md-typeset .md-button {
+  font-size: 1em; font-weight: 700; padding: .75em 1.4em; border-radius: 10px;
+  color: #fff; background: var(--rs-panel); border: 1px solid var(--rs-border);
+}
+.md-typeset .md-button:hover, .md-typeset .md-button:focus {
+  color: #fff; background: #3a4266; border-color: var(--rs-gold); text-decoration: none;
+}
+.md-typeset .md-button--primary { background: var(--rs-accent); border-color: var(--rs-accent); color: #fff; }
+.md-typeset .md-button--primary:hover, .md-typeset .md-button--primary:focus { background: #f0284f; border-color: var(--rs-gold); }
+.md-typeset .rs-small { display: block; font-size: .78em; font-weight: 600; opacity: .85; margin-top: .15em; }
+
+/* Status box: three even cards */
+.md-typeset .rs-statusbox {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(10em, 1fr)); gap: .8em; margin: 1em 0;
+}
+.md-typeset .rs-stat {
+  display: flex; flex-direction: column; justify-content: flex-start; gap: .25em; padding: .9em 1em;
+  border: 1px solid var(--rs-border); border-radius: 12px; background: var(--rs-panel-alt);
+}
+.md-typeset .rs-stat-n { font-size: 1.6em; font-weight: 700; color: #fff; line-height: 1.15; }
+.md-typeset .rs-stat span:last-child { color: var(--rs-muted); font-size: .88em; line-height: 1.4; }
+.md-typeset .rs-news-line { color: var(--rs-muted); font-size: .95em; }
+
+/* ===== Status pills, ids, dates =========================================== */
+
+.md-typeset .rs-pill {
+  display: inline-block; font-size: .72em; font-weight: 700; letter-spacing: .05em; line-height: 1.5;
+  padding: .1em .65em; border-radius: 999px; margin-right: .5em; vertical-align: .15em;
+  text-transform: uppercase;
+}
+.rs-pill--open          { background: rgba(222, 28, 63, .18);  color: #ff8fa2; border: 1px solid rgba(222, 28, 63, .5); }
+.rs-pill--investigating { background: rgba(249, 210, 118, .14); color: var(--rs-gold); border: 1px solid rgba(249, 210, 118, .45); }
+.rs-pill--open-idea     { background: rgba(110, 160, 255, .14); color: #a9c4ff; border: 1px solid rgba(110, 160, 255, .45); }
+.rs-pill--done          { background: rgba(52, 162, 100, .16); color: #7fd6a3; border: 1px solid rgba(52, 162, 100, .5); }
+.rs-pill--muted         { background: var(--rs-panel-alt); color: var(--rs-muted); border: 1px solid var(--rs-border); }
+
+.md-typeset .rs-id { font-family: var(--md-code-font-family); font-size: .85em; color: var(--rs-muted); margin-right: .35em; }
+.md-typeset .rs-date { color: var(--rs-muted); font-size: .88em; }
+.md-typeset .rs-empty { color: var(--rs-muted); font-style: italic; }
+
+/* ===== Versions page ======================================================= */
+
+.md-typeset .rs-release {
+  border: 1px solid var(--rs-border); border-radius: 12px; padding: .2em 1.3em 1em;
+  margin: 1.6em 0; background: linear-gradient(180deg, rgba(47, 54, 85, .35), rgba(28, 36, 56, .15));
+}
+.md-typeset .rs-release h2 { border: 0; margin: .9em 0 .2em; padding: 0; }
+.md-typeset .rs-release h3 {
+  font-size: .8em; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  margin: 1.4em 0 .4em; color: var(--rs-gold);
+}
+.md-typeset .rs-summary { font-weight: 500; }
+.md-typeset .rs-dl { margin-top: 1.2em; }
+
+/* ===== Status page ========================================================= */
+
+.md-typeset .rs-item { border-left: 3px solid var(--rs-border); padding: .4em 0 .4em 1em; margin: .8em 0; }
+.md-typeset .rs-item-head { font-weight: 600; }
+.md-typeset .rs-meta { color: var(--rs-muted); font-size: .88em; margin-top: .2em; }
+.md-typeset .rs-workaround { margin-top: .3em; }
+.md-typeset .rs-forum { white-space: nowrap; }
+.md-typeset .rs-news { margin: .9em 0; }
+.md-typeset .rs-news p { margin: .2em 0 0; }
+
+/* ===== Videos ============================================================== */
+
+.md-typeset .rs-video { position: relative; aspect-ratio: 16 / 9; margin: 1em 0; }
+.md-typeset .rs-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 12px; }

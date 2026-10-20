@@ -4,17 +4,22 @@ hide:
   - toc
 ---
 
+<div class="rs-hero" markdown>
+
 # Replay Suite
 
 <p class="rs-lead">Every hand you play on ReplayPoker, saved and explained. On your computer, nowhere else.</p>
 
-Replay Suite is a free add-on for your browser. It records your hands as you play, lets you replay any of them, shows how you are doing, and puts a few numbers about each opponent right at the table. No sign-up. Nothing leaves your computer.
+A free add-on for your browser. It records your hands as you play, lets you replay any of them, shows how you are doing, and puts a few numbers about each opponent right at the table. No sign-up.
 
 <div class="rs-install" markdown>
 
-[Firefox: install in one click]({{ amo_url }}){ .md-button .md-button--primary }
-[Chrome and Edge: download {{ latest_chrome_version }}]({{ latest_zip_url }}){ .md-button }
-[Step-by-step guide](install.md){ .md-button }
+[Firefox<span class="rs-small">Install in one click</span>]({{ amo_url }}){ .md-button .md-button--primary }
+[Chrome and Edge<span class="rs-small">Download version {{ latest_chrome_version }}</span>]({{ latest_zip_url }}){ .md-button }
+
+</div>
+
+<p class="rs-guide"><a href="install/">Step-by-step install guide</a></p>
 
 </div>
 
