@@ -82,6 +82,12 @@ ACCOUNT = "PokerAlliance"
 VERSION_RE = re.compile(r"^\d+\.\d+\.\d+$")
 
 
+def nice_date(iso: str) -> str:
+    """2026-10-20 as 20 October 2026, the way the site and the forum write dates."""
+    day = dt.date.fromisoformat(iso)
+    return f"{day.day} {day.strftime('%B %Y')}"
+
+
 def version_key(v: str) -> tuple[int, ...]:
     return tuple(int(p) for p in v.split("."))
 

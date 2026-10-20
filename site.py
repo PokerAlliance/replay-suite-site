@@ -269,6 +269,8 @@ def edit_entry(entry: dict) -> dict:
 
 
 def to_clipboard(text: str) -> None:
+    if os.environ.get("RS_NO_CLIPBOARD"):  # forum/check.py renders without touching the clipboard
+        return
     for cmd in (["wl-copy"], ["xclip", "-selection", "clipboard"]):
         if shutil.which(cmd[0]):
             subprocess.run(cmd, input=text.encode())
@@ -288,8 +290,12 @@ def cmd_forum(a) -> None:
         open_bugs = [b for b in data["bugs"] if b["status"] in ("open", "investigating")]
         planned = [s for s in data["suggestions"] if s["status"] == "planned"]
         review = [s for s in data["suggestions"] if s["status"] == "under review"]
-        lines = ["## Replay Suite: status board", "",
-                 f"*Updated {today()}. Full list: {d.SITE_URL}status/*", ""]
+        # Thread B is an ordinary thread: its author may only edit a post for a while.
+        # So this post never depends on editing: it points at the always-current page,
+        # and when it is out of date a fresh one is posted as a reply.
+        lines = [f"![Status board|690x115]({d.SITE_URL}img/forum/status-header.png)", "",
+                 f"**Always up to date on the website: {d.SITE_URL}status/**", "",
+                 f"*This post is a snapshot from {d.nice_date(today())}. When it gets old, a fresh one is posted further down the thread.*", ""]
         if latest:
             lines += [f"**Latest version: {latest['version']}** ({latest['summary']})", "",
                       f"- Firefox: updates itself. [Firefox Add-ons]({d.AMO_URL})",

@@ -8,7 +8,6 @@ is left alone, so a stray brace in normal text can never break the build.
 
 from __future__ import annotations
 
-import datetime as dt
 import sys
 from html import escape
 from pathlib import Path
@@ -20,9 +19,7 @@ BUG_PILL = {"open": "open", "investigating": "investigating", "fixed": "done", "
 IDEA_PILL = {"under review": "investigating", "planned": "open-idea", "shipped": "done", "not planned": "muted"}
 
 
-def nice_date(iso: str) -> str:
-    d = dt.date.fromisoformat(iso)
-    return f"{d.day} {d.strftime('%B %Y')}"
+nice_date = rsdata.nice_date
 
 
 def pill(text: str, kind: str) -> str:
