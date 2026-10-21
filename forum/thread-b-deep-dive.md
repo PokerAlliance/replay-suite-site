@@ -10,7 +10,7 @@ Extra template tag here:  {{coach:Card title}}  a Coach's opinion quote from coa
 
 Hello everyone,
 
-This is the home thread for **Replay Suite**: questions, bug reports, ideas, and news of each new version. The short introduction is in the showcase thread; this post is the full walkthrough, one feature at a time, with pictures. You don't need to read it all. Open the parts you are curious about.
+I'm Badr, **ThonBl7ror** at the tables, and I made Replay Suite. This is its home thread: questions, bug reports, ideas, and news of each new version. The short introduction is in the showcase thread; this post is the full walkthrough, one feature at a time, with pictures. You don't need to read it all. Open the parts you are curious about.
 
 Post 2, just below, is the **status board**: the latest version, known bugs and planned ideas. The always up to date version of it is on the website: {{site:status/}}
 
@@ -104,6 +104,18 @@ Click the icon, then **Open Dashboard**. Left side: your sessions and tournament
 
 {{img:shot-viewing-as|Look at any opponent's numbers from the hands you played together}}
 
+{{img:feature-export|Exports to PokerStars format, for trackers, HUDs and solvers}}
+
+**Export to PokerStars.** Replay does not let you take your hand histories anywhere. Replay Suite writes them in **PokerStars hand-history format**, the format that trackers like PokerTracker and Hold'em Manager import, that their HUDs run on, and that solvers and study tools read. As far as I know, it is the only tool that can do this for Replay hands.
+
+- **One hand**: **Download as PokerStars** in the replayer.
+- **One session or tournament**: the **↓ PS** button next to it in the sessions list.
+- **Every hand you have**: Settings, Data, **Export as PokerStars**.
+
+{{img:shot-export|Settings, Data: Export as PokerStars writes every hand in one go}}
+
+Showdowns are written from the cards themselves, so an all-in hand names the hand that actually won. An export is a copy for other software, not a backup: use Back up for that.
+
 {{img:separator|}}
 
 {{img:section-04|04 The replayer: watch any hand again, step by step}}
@@ -126,7 +138,7 @@ When there is something honest to work it out from, the replayer also shows your
 
 {{coach:Equity, and why "shown hand" matters}}
 
-**Download as PokerStars** exports any hand for other poker software.
+**Download as PokerStars** saves the hand you are watching in PokerStars format, for other poker software (see the export part of section 03).
 
 [/details]
 
@@ -172,7 +184,7 @@ Click the icon, then **Settings**.
 
 **Retro mode** is the dark look Replay used to have. Switch it on in the popup or in Settings. It takes effect the next time you open or reload a Replay page.
 
-**Import and Export.** Files from the older ReplayTracker tool import here. You can also export hands in PokerStars format.
+**Import.** Files from the older ReplayTracker tool import here, and merge with what you have. Exporting to PokerStars format is in section 03.
 
 **Background work.** Fetching your old hands and tournament results takes requests to Replay's servers. The add-on does this slowly on purpose, never while you are sitting at a table, and you can see what it is doing and pause it in Settings, Background.
 
@@ -190,7 +202,9 @@ Click the icon, then **Settings**.
 
 **Does it collect anything?** No. There is no account, no server, no analytics, no adverts, nothing that phones home. The only website it talks to is Replay itself, with the login you already have, to fetch your own history. The privacy policy is short: {{site:privacy/}}
 
-**Who made it, and what does it cost?** Me, on my own time. It is free and will stay free: no premium version, no adverts. If you would like to say thanks, there is a Support button in the add-on. Entirely optional.
+**Who made it, and what does it cost?** I did, on my own time. It is free and will stay free: no premium version, no adverts. That also means it is supported only by donations. If it helps your game and you have the means, a coffee helps me keep it maintained and keep improving it. Entirely optional. (The Support button in the add-on leads to the same page.)
+
+{{link-img:button-kofi|Support Replay Suite: buy me a coffee on Ko-fi|kofi}}
 
 {{coach:Play money is still poker}}
 

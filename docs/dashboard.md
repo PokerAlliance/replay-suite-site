@@ -12,6 +12,8 @@ How many hands, and your result. Ring games are shown in chips, tournaments in b
 
 Every table you have sat at, newest first, with the format (ring, MTT, SnG), the table size, how many hands, and the result. Click one and every tab narrows to it. Click **All hands** to widen again.
 
+The <kbd>↓ PS</kbd> button next to each session downloads every hand from it in PokerStars format, ready for other poker software. See [Export to PokerStars](#export-to-pokerstars) below.
+
 ## The filter bar
 
 Under the tabs. When (7 days, 30 days, custom), format, table size, position, how the hand ended, and stack depth. Every chip you press narrows every tab at once. Press it again to clear.
@@ -58,7 +60,7 @@ Steps through one hand like a video. Seats, stacks, the pot and the board, with 
 - **A range**: pick a set of hands they might have had, and see your chances against that.
 - **Seen with**: your chances against the hands you have actually seen this player show down before. The panel says exactly what it is using.
 
-<kbd>Download as PokerStars</kbd> exports the hand for other poker software.
+<kbd>Download as PokerStars</kbd> saves this one hand in PokerStars format, for other poker software. See [Export to PokerStars](#export-to-pokerstars) below.
 
 !!! coach "Coach's opinion"
     <!-- COACH: Card "Pot odds in one minute" -->
@@ -119,6 +121,20 @@ A grid of all 169 starting hands, coloured by how you play them. Preset ranges o
 !!! coach "Coach's opinion"
     <!-- COACH: Card "The Range tab: what a 13 by 13 grid shows" -->
     The grid has 169 cells, one for every starting hand that plays the same way. Pairs run down the diagonal from AA to 22. Suited hands sit above it, offsuit hands below. Suited means both cards in one suit. K9s is the cell for a king and a nine of the same suit. Each cell is shaded by how you have done with that hand, blue for won, red for lost, empty for never dealt. Click cells, or drag across them, to build a selection. Range width tells you what share of all possible holdings that is. Then apply it, and every tab shows only hands where you held one of those. Try selecting your red cells and asking why.
+
+## Export to PokerStars
+
+Replay Suite writes your Replay hands in **PokerStars hand-history format**, the format trackers like PokerTracker and Hold'em Manager import and that solvers and study tools read. That makes your Replay hands usable in all of them, which Replay itself does not offer. As far as I know, Replay Suite is the only tool that can do this.
+
+| To export | Where |
+|---|---|
+| One hand | <kbd>Download as PokerStars</kbd>, top right of the replayer |
+| One session or tournament | <kbd>↓ PS</kbd>, next to it in the sessions list |
+| Every hand you have | Settings, Data, <kbd>Export as PokerStars</kbd> |
+
+![Settings, Data: Export as PokerStars writes every hand in one go](img/shots/options-export.png)
+
+Showdowns are written from the cards themselves rather than from what the site recorded at the moment they were shown, so an all-in hand names the hand that actually won. An export is a copy for other software, not a backup: to keep your hands safe, use [Back up](data.md#back-up).
 
 ## Viewing as
 

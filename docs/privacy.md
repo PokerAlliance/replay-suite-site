@@ -3,7 +3,7 @@
 **Last updated: 20 October 2026**
 
 Replay Suite is a browser extension that records your own ReplayPoker hands and
-shows you statistics about them. It is made by Badr (aka ThonBl7ror).
+shows you statistics about them. I'm Badr (aka ThonBl7ror), and I made it.
 
 ## What it collects
 

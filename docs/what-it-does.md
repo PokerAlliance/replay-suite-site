@@ -10,6 +10,7 @@ Replay Suite is a free add-on for your browser. It saves every hand you play on 
 - **You can replay any hand**, card by card, with the pot odds worked out for you.
 - **You can see how you are doing** over a week, a month, or since you started. By seat, by tournament, by starting hand.
 - **You can see who you are playing against.** A small badge under each player at the table shows a few numbers about them, built from the hands you have already seen them play.
+- **You can take your hands to other poker software.** Export one hand, one session or your whole history in PokerStars format.
 - **Retro mode** brings back the dark look Replay used to have.
 
 !!! coach "Coach's opinion"
@@ -37,6 +38,20 @@ At the table, a small badge under each player shows how they tend to play, built
 ![The HUD at a 6-max table](img/shot-hud-table.png)
 
 [More about the HUD](hud.md)
+
+## Use your hands in other poker software
+
+Replay does not let you take your hand histories anywhere. Replay Suite does: it writes them in **PokerStars hand-history format**, the format that trackers like PokerTracker and Hold'em Manager import, and that solvers and study tools read. As far as I know, it is the only tool that can do this for Replay hands.
+
+- **One hand**: <kbd>Download as PokerStars</kbd> in the replayer.
+- **One session or tournament**: the <kbd>↓ PS</kbd> button next to it in the dashboard's sessions list.
+- **Everything at once**: Settings, Data, <kbd>Export as PokerStars</kbd>.
+
+![Settings, Data: Export as PokerStars writes every hand in one go](img/shots/options-export.png)
+
+Showdowns are written from the cards themselves, so an all-in hand names the hand that actually won.
+
+[More about exporting](data.md#export-for-other-trackers)
 
 ## What it is not
 

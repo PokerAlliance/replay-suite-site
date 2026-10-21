@@ -45,7 +45,8 @@ OUT = HERE / "out"
 COACH = SITE / "coach" / "coach-content.md"
 THREAD_B_URL_FILE = HERE / "thread-b-url.txt"
 
-TARGETS = {"amo": d.AMO_URL, "latest-zip": d.LATEST_ZIP_URL}
+KOFI_URL = "https://ko-fi.com/badrpoker"
+TARGETS = {"amo": d.AMO_URL, "latest-zip": d.LATEST_ZIP_URL, "kofi": KOFI_URL}
 POSTS = [
     ("thread-a", HERE / "thread-a-showcase.md", True),
     ("thread-b-deep-dive", HERE / "thread-b-deep-dive.md", False),

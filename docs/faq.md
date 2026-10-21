@@ -30,7 +30,7 @@ No. There is no account, no server, no analytics, no adverts, nothing that phone
 
 ## Is it free?
 
-Yes, and it stays free. No premium version, no adverts. The add-on is the author's own work and is licensed rather than open source; the builds are free for everyone.
+Yes, and it stays free. No premium version, no adverts. Replay Suite is my own work and is licensed rather than open source; the builds are free for everyone. It is supported only by donations: [here is how to help](support.md), if you would like to.
 
 ## I installed it and nothing happened
 

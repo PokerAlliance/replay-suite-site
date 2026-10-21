@@ -182,6 +182,10 @@ def drawn_icon(kind: str, size: int) -> Image.Image:
         for i, h in enumerate((.18, .28, .22, .4)):
             x = s * (.27 + i * .13)
             d.rounded_rectangle((x, s * (.7 - h), x + s * .09, s * .7), 6, fill=GOOD if i == 3 else MUTED)
+    elif kind == "export":  # a card with an arrow leaving it
+        d.rounded_rectangle((s * .26, s * .26, s * .52, s * .66), 10, fill=(240, 240, 248, 255))
+        d.line([(s * .5, s * .5), (s * .74, s * .5)], fill=GOLD, width=10)
+        d.polygon([(s * .74, s * .4), (s * .74, s * .6), (s * .84, s * .5)], fill=GOLD)
     elif kind == "play":
         d.polygon([(s * .4, s * .3), (s * .4, s * .7), (s * .72, s * .5)], fill=TEXT)
     return im
@@ -257,6 +261,9 @@ def feature_card(kind, title, line):
 for _kind, _title, _line in FEATURES:
     ASSETS[f"feature-{_kind}"] = (lambda k=_kind, t=_title, l=_line: feature_card(k, t, l))
 
+# Shown on its own under the grid of four: the one thing no other tool does for Replay.
+ASSETS["feature-export"] = lambda: feature_card("export", "Exports to PokerStars format", "For trackers, HUDs and solvers.")
+
 
 BUTTONS = [
     ("button-firefox", "Firefox", "Install in one click", ACCENT, (255, 214, 222)),
@@ -264,6 +271,7 @@ BUTTONS = [
     ("button-guide", "Step-by-step guide", "Pictures for every click", PANEL, MUTED),
     ("button-discussion", "Questions, bugs and ideas", "Join the Replay Suite discussion", PANEL, MUTED),
     ("button-versions", "Every version", "What changed, and the downloads", PANEL, MUTED),
+    ("button-kofi", "Support Replay Suite", "Free, and supported only by donations", PANEL, MUTED),
 ]
 
 
@@ -417,6 +425,7 @@ FRAMED = [
     ("shot-viewing-as", "dashboard-viewing-as", "Look at any opponent's numbers from the hands you played together", False),
     ("shot-settings-hud", "options-hud", "Choose what the badge at the table shows", False),
     ("shot-settings-data", "options-data", "Your library, back up and restore", False),
+    ("shot-export", "options-export", "Settings, Data: Export as PokerStars writes every hand in one go", False),
     ("shot-chrome-extensions", "chrome-extensions", "chrome://extensions: Developer mode on, Load unpacked, and the Replay Suite card", False),
 ]
 

@@ -31,7 +31,15 @@ If you used the older ReplayTracker tool, its exported files go in here.
 
 ## Export for other trackers
 
-Writes your hands in PokerStars hand-history format, which most poker software reads. Export everything, one session, or one hand from the replayer.
+Writes your hands in PokerStars hand-history format, the format PokerTracker, Hold'em Manager, solvers and most other poker software read. It turns your Replay hands into something those tools can use, which Replay itself does not offer.
+
+- **Everything**: Settings, Data, <kbd>Export as PokerStars</kbd>.
+- **One session or tournament**: the <kbd>↓ PS</kbd> button next to it in the dashboard.
+- **One hand**: <kbd>Download as PokerStars</kbd> in the replayer.
+
+![Settings, Data: Export as PokerStars](img/shots/options-export.png)
+
+An export is a conversion for other software, not a backup. Use [Back up](#back-up) for anything you need to restore from.
 
 ## Recover from ReplayPoker
 

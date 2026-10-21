@@ -6,7 +6,7 @@ No version numbers, no dates, only permanent links.
 Do not paste this file. Run   python3 forum/check.py   and paste forum/out/thread-a.md.
 Template tags:
   {{img:NAME|alt}}              an image from docs/img/forum, at forum size
-  {{link-img:NAME|alt|TARGET}}  the same, as a link. TARGET: amo, latest-zip, thread-b, or a site page like install/
+  {{link-img:NAME|alt|TARGET}}  the same, as a link. TARGET: amo, latest-zip, kofi, thread-b, or a site page like install/
   {{site:PAGE}}                 a page of the website, e.g. {{site:privacy/}}
 -->
 
@@ -28,6 +28,10 @@ It's free, there's no account to make, and nothing you play ever leaves your com
 {{img:feature-opponents|Reads your opponents: a small badge under each player}}
 {{img:feature-results|Shows how you're doing: by seat, by tournament, by hand}}
 [/grid]
+
+{{img:feature-export|Exports to PokerStars format, for trackers, HUDs and solvers}}
+
+It also exports your Replay hands to **PokerStars format**: one hand, one session, or all of them at once. That makes them usable in trackers like PokerTracker and Hold'em Manager, in their HUDs, and in solvers and study tools. As far as I know, Replay Suite is the only tool that can do this for Replay hands.
 
 {{img:shot-dashboard|The dashboard: every hand you play, and what it says about your game}}
 
@@ -70,6 +74,14 @@ This thread is closed so it stays easy to read. Questions, bug reports, ideas an
 What changed in each version, and every download, is on the website:
 
 {{link-img:button-versions|Every version: what changed, and the downloads|versions/}}
+
+{{img:separator|}}
+
+## Supported by donations
+
+Replay Suite is free, and I'm keeping it that way: no premium version, no adverts. It is supported only by donations. If it helps your game and you have the means, a coffee helps me keep it maintained and keep improving it. Entirely optional.
+
+{{link-img:button-kofi|Support Replay Suite: buy me a coffee on Ko-fi|kofi}}
 
 See you at the tables.
 

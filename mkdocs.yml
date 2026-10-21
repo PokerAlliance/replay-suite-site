@@ -82,4 +82,6 @@ nav:
       - Versions: versions.md
       - Status: status.md
       - Videos: videos.md
+  - About:
+      - Support Replay Suite: support.md
       - Privacy: privacy.md

@@ -18,4 +18,5 @@ frame. Square, at least 1024 px, subject centred with some empty space around it
 | `icon-replays.png` | Three playing cards fanned out, with a round crimson play button in front of them. |
 | `icon-opponents.png` | Three friendly, faceless player avatars side by side, each with a small rounded gold badge under it. |
 | `icon-results.png` | A rising bar chart of four rounded bars with a small gold upward arrow and a poker chip at its foot. |
+| `icon-export.png` | A stack of three playing cards with a red spade on the top card, and a curved gold arrow leaving the stack towards a small navy document page, suggesting hands being exported to other software. |
 | `hero-table.png` | A green felt poker table seen from slightly above, oval, with a polished wooden rail, a few chip stacks and three face down cards, soft glow under the table. |
